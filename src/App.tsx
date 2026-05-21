@@ -3,6 +3,7 @@ import { SearchBar } from "./components/SearchBar";
 import { TreeCanvas } from "./components/TreeCanvas";
 import {
   FOCAL_NAME,
+  FOCAL_PERSON_ID,
   fatherSections,
   motherSections,
   sections,
@@ -13,17 +14,23 @@ type Tab = "home" | "mother" | "father";
 export default function App() {
   const [tab, setTab] = useState<Tab>("home");
   const [sectionId, setSectionId] = useState(sections[0].id);
+  const [focusPersonId, setFocusPersonId] = useState<string | null>(null);
 
   const activeSection =
     sections.find((s) => s.id === sectionId) ?? sections[0];
 
   const sideSections = tab === "mother" ? motherSections : fatherSections;
 
-  function goToSection(id: string) {
+  function goToSection(id: string, personId?: string) {
     const sec = sections.find((s) => s.id === id);
     if (!sec) return;
     setSectionId(id);
     setTab(sec.side);
+    setFocusPersonId(personId ?? null);
+  }
+
+  function goToPerson(sectionId: string, personId: string) {
+    goToSection(sectionId, personId);
   }
 
   return (
@@ -38,7 +45,7 @@ export default function App() {
               {FOCAL_NAME}
             </h1>
           </div>
-          <SearchBar onSelect={goToSection} />
+          <SearchBar onSelect={goToPerson} />
         </div>
         <nav className="mx-auto flex max-w-6xl gap-1 px-4 pb-3">
           {(
@@ -81,18 +88,12 @@ export default function App() {
                 <SideCard
                   title="Mother's side"
                   clans={["Malig–Bie", "Salinas (Caylao)"]}
-                  onOpen={() => {
-                    setTab("mother");
-                    setSectionId("malig-bie");
-                  }}
+                  onOpen={() => goToSection("malig-bie")}
                 />
                 <SideCard
                   title="Father's side"
                   clans={["Carlos (Dungo)", "Tolentino–Ronquillo"]}
-                  onOpen={() => {
-                    setTab("father");
-                    setSectionId("carlos");
-                  }}
+                  onOpen={() => goToSection("carlos")}
                 />
               </div>
             </section>
@@ -112,7 +113,7 @@ export default function App() {
               <button
                 type="button"
                 className="mt-4 text-sm font-medium text-emerald-800 underline hover:text-emerald-950"
-                onClick={() => goToSection("malig-bie")}
+                onClick={() => goToPerson("malig-bie", FOCAL_PERSON_ID)}
               >
                 Jump to Nathalie&apos;s branch →
               </button>
@@ -133,7 +134,7 @@ export default function App() {
                   <li key={s.id}>
                     <button
                       type="button"
-                      onClick={() => setSectionId(s.id)}
+                      onClick={() => goToSection(s.id)}
                       className={[
                         "w-full rounded-lg border px-3 py-2 text-left text-sm transition",
                         sectionId === s.id
@@ -166,6 +167,7 @@ export default function App() {
               <TreeCanvas
                 root={activeSection.root}
                 sectionId={activeSection.id}
+                focusPersonId={focusPersonId}
               />
               <Legend />
             </div>
