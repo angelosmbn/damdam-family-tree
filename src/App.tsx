@@ -32,7 +32,7 @@ export default function App() {
         <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-emerald-700">
-              Damdam Family Tree
+              Nathalie Family Tree
             </p>
             <h1 className="font-serif text-2xl font-semibold text-stone-900 md:text-3xl">
               {FOCAL_NAME}
@@ -70,12 +70,12 @@ export default function App() {
           <div className="space-y-8">
             <section className="rounded-2xl border border-emerald-200 bg-white p-6 shadow-sm">
               <h2 className="font-serif text-xl text-stone-800">
-                Your two family lines
+                Nathalie&apos;s two family lines
               </h2>
               <p className="mt-2 max-w-2xl text-stone-600">
-                This site maps your maternal Malig–Salinas line and your paternal
+                This site maps her maternal Malig–Salinas line and her paternal
                 Carlos–Ronquillo line. Trees are interactive: expand branches,
-                search names, and your entry is highlighted in gold.
+                search names, and her entry is highlighted in gold.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <SideCard
@@ -98,15 +98,15 @@ export default function App() {
             </section>
 
             <section className="rounded-2xl border border-amber-200 bg-amber-50/50 p-6">
-              <h3 className="font-medium text-amber-900">Where you appear</h3>
+              <h3 className="font-medium text-amber-900">Where she appears</h3>
               <ul className="mt-3 space-y-2 text-sm text-amber-950">
                 <li>
                   <strong>Malig–Bie → branch 9.4:</strong> Maria Elena Salinas &
-                  Richard Ronquillo — siblings Orlando Nathaniel & you.
+                  Richard Ronquillo — siblings Orlando Nathaniel and Nathalie.
                 </li>
                 <li>
                   <strong>Carlos → Edna & Reynaldo → 5.1:</strong> Richard &
-                  Maria Elena — same household from your father&apos;s tree.
+                  Maria Elena — same household on her father&apos;s tree.
                 </li>
               </ul>
               <button
@@ -114,7 +114,7 @@ export default function App() {
                 className="mt-4 text-sm font-medium text-emerald-800 underline hover:text-emerald-950"
                 onClick={() => goToSection("malig-bie")}
               >
-                Jump to your branch →
+                Jump to Nathalie&apos;s branch →
               </button>
             </section>
 
@@ -174,7 +174,7 @@ export default function App() {
       </main>
 
       <footer className="border-t border-stone-200 py-6 text-center text-xs text-stone-500">
-        Damdam Family Tree · Frontend only · Deploy on Vercel
+        Nathalie Family Tree
       </footer>
     </div>
   );
@@ -213,7 +213,7 @@ function Legend() {
     <div className="mt-8 flex flex-wrap gap-4 text-xs text-stone-600">
       <span className="flex items-center gap-2">
         <span className="h-4 w-8 rounded border-2 border-amber-400 bg-amber-50" />
-        You (Resurreccion Nathalie Salinas)
+        Resurreccion Nathalie Salinas (featured)
       </span>
       <span className="flex items-center gap-2">
         <span className="h-4 w-8 rounded border border-stone-300 bg-stone-100" />
@@ -223,7 +223,7 @@ function Legend() {
         <span className="text-rose-400">♥</span> Marriage / partnership
       </span>
       <span className="flex items-center gap-2">
-        <span className="text-amber-600">★</span> Branch contains you (collapsed)
+        <span className="text-amber-600">★</span> Branch contains Nathalie (collapsed)
       </span>
     </div>
   );

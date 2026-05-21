@@ -21,7 +21,7 @@ export const salinasCaylaoRoot: FamilyNode = family(
       "2. Leonisa & Gervacio",
     ),
     family(
-      [pid("Lourdes Maglalang"), pid("Candido Maglalang")],
+      [pid("Lourdes Maglalang"), pid("Candido Maglalang", { deceased: true })],
       [
         family(
           [pid("Rowena"), pid("Arnel Prudente")],
@@ -58,11 +58,17 @@ export const salinasCaylaoRoot: FamilyNode = family(
     family(
       [pid("Homer Salinas"), pid("Rosie Salinas")],
       [
-        family([pid("Rowell Salinas")]),
-        family([pid("Analiza Salinas")]),
-        family([pid("Vincent Salinas")]),
-        family([pid("Homer Salinas")]),
-        family([pid("April Salinas")]),
+        family(
+          [pid("Rowell Salinas"), pid("Analiza Salinas")],
+          [
+            family([pid("Vincent Salinas")]),
+            family([pid("Homer Salinas")]),
+            family([pid("April Salinas")]),
+          ],
+        ),
+        family([pid("Rosalie Salinas")]),
+        family([pid("Teng Salinas")]),
+        family([pid("Ria Salinas")]),
       ],
       "4. Homer & Rosie",
     ),

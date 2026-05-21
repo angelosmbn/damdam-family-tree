@@ -13,7 +13,7 @@ export const maligBieRoot: FamilyNode = family(
     family(
       [clarita, benedictoSr],
       [
-        family([pid("Clemen Gonzales"), pid("Mark Gehlhar")], [
+        family([pid("Clemen Gonzales"), pid("Martin Gehlhar")], [
           family([pid("Martin", { deceased: true })]),
         ]),
         family(
@@ -43,7 +43,7 @@ export const maligBieRoot: FamilyNode = family(
           family([pid("Clemence Enree Ocampo")]),
           family([pid("Christian Ocampo")]),
           family([pid("Cynthia Iris Ocampo")]),
-          family([pid("Cassandra Marie Gonzales")]),
+          family([pid("Cassandra Marie Luna")]),
         ]),
         family(
           [pid("Jesus Gonzales"), pid("Isabella Gonzales")],
@@ -80,7 +80,7 @@ export const maligBieRoot: FamilyNode = family(
       "2. Benjamin & Luz",
     ),
     family(
-      [pid("Rolando Malig", { deceased: true }), pid("Rosario Magat")],
+      [pid("Rolando Malig Sr.", { deceased: true }), pid("Rosario Magat")],
       [
         family([pid("Rowena Duenas")], [
           family([pid("Bernard Dungca")]),
@@ -184,7 +184,7 @@ export const maligBieRoot: FamilyNode = family(
           family([pid("Jann Harvey Mallari")]),
         ]),
         family(
-          [pid("Itoy"), pid("Michelle")],
+          [pid("Miguelito"), pid("Michelle")],
           [
             family([pid("Andrei Mallari", { deceased: true })]),
             family([pid("Rogelio Mallari")]),
@@ -222,12 +222,10 @@ export const maligBieRoot: FamilyNode = family(
           [
             family(
               [pid("Clark Kent Salinas"), pid("Rudianne Tolentino")],
-              [
-                family([pid("Omara Salinas")]),
-                family([pid("Kean Chloe Salinas")]),
-                family([pid("Carl Kobe Salinas")]),
-              ],
+              [family([pid("Omara Salinas")])],
             ),
+            family([pid("Kean Chloe Salinas")]),
+            family([pid("Carl Kobe Salinas")]),
           ],
         ),
         family([pid("Raymir Salinas")], [
@@ -249,7 +247,7 @@ export const maligBieRoot: FamilyNode = family(
               pid("Resurreccion Nathalie Salinas", { focal: true }),
             ]),
           ],
-          "9.4 — Your parents",
+          "9.4 — Her parents",
         ),
         family(
           [pid("Noreen Salinas"), pid("Jonathan Sarmiento")],

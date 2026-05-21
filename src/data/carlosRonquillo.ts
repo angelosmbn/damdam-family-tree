@@ -2,10 +2,10 @@ import { family, pid } from "./helpers";
 import type { FamilyNode } from "../types/family";
 
 export const carlosRoot: FamilyNode = family(
-  [pid("Remedios Dungo"), pid("Jose Carlos")],
+  [pid("Remedios Dungo", { deceased: true }), pid("Jose Carlos", { deceased: true })],
   [
     family(
-      [pid("Bernardita Carlos"), pid("Reneto Cruz")],
+      [pid("Bernardita Carlos", { deceased: true }), pid("Reneto Cruz", { deceased: true })],
       [
         family([pid("Richborn")]),
         family([pid("Renato"), pid("Anna")]),
@@ -22,7 +22,7 @@ export const carlosRoot: FamilyNode = family(
       "2. Joaquin & Aida",
     ),
     family(
-      [pid("Ruben"), pid("Lilia")],
+      [pid("Ruben", { deceased: true }), pid("Lilia")],
       [
         family([pid("Aristotle")]),
         family([pid("Kristine")]),
@@ -31,12 +31,12 @@ export const carlosRoot: FamilyNode = family(
       "3. Ruben & Lilia",
     ),
     family(
-      [pid("Celestino")],
+      [pid("Celestino", { deceased: true })],
       [family([pid("Katrina")]), family([pid("Jayson")])],
       "4. Celestino",
     ),
     family(
-      [pid("Edna"), pid("Reynaldo")],
+      [pid("Edna"), pid("Reynaldo", { deceased: true })],
       [
         family(
           [pid("Richard Ronquillo"), pid("Maria Elena Salinas")],
@@ -46,7 +46,7 @@ export const carlosRoot: FamilyNode = family(
               pid("Resurreccion Nathalie Salinas", { focal: true }),
             ]),
           ],
-          "5.1 — Your parents",
+          "5.1 — Her parents",
         ),
         family(
           [pid("Christian"), pid("Jannette")],
@@ -67,6 +67,31 @@ export const carlosRoot: FamilyNode = family(
         ),
       ],
       "5. Edna & Reynaldo",
+    ),
+    family(
+      [pid("Evangeline Dionisio"), pid("Gregorio Dionisio Jr.")],
+      [
+        family([pid("Kaye Dionisio")]),
+        family([pid("Carmella Dionisio")]),
+        family([pid("Karell Dionisio")]),
+        family([pid("Gregorio Dionisio III")]),
+      ],
+      "6. Evangeline & Gregorio Jr.",
+    ),
+    family(
+      [pid("Joselito"), pid("Benita")],
+      [
+        family([pid("Jayar")]),
+        family([pid("Sheena")]),
+        family([pid("Joseph", { deceased: true })]),
+        family([pid("Pauline")]),
+      ],
+      "7. Joselito & Benita",
+    ),
+    family(
+      [pid("Elsa")],
+      [family([pid("Nadine")]), family([pid("Julian")])],
+      "8. Elsa",
     ),
   ],
   "Carlos clan",

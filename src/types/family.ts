@@ -3,7 +3,7 @@ export interface Person {
   name: string;
   deceased?: boolean;
   note?: string;
-  /** Marks you — Resurreccion Nathalie Salinas */
+  /** Marks the featured person — Resurreccion Nathalie Salinas */
   focal?: boolean;
 }
 

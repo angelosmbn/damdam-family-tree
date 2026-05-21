@@ -25,7 +25,7 @@ export function PersonCard({ person, compact }: PersonCardProps) {
     >
       {isFocal && (
         <span className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-500 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">
-          You
+          Featured
         </span>
       )}
       <p className={`font-medium leading-tight ${isFocal ? "mt-1" : ""}`}>

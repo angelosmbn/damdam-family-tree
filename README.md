@@ -37,7 +37,7 @@ vercel
 - Overview with both family lines
 - Expandable/collapsible tree branches
 - Search by name (jumps to the right tree)
-- **You** highlighted on Malig–Bie branch 9.4 and Carlos branch 5.1
+- **Resurreccion Nathalie Salinas** highlighted on Malig–Bie branch 9.4 and Carlos branch 5.1
 - Deceased members marked with †
 - Scrollable tree canvas with pan on smaller screens
 
