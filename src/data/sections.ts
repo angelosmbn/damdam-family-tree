@@ -1,9 +1,12 @@
+import { findFocalPerson } from "../utils/tree";
 import { carlosRoot, ronquilloRoot } from "./carlosRonquillo";
 import { maligBieRoot } from "./maligBie";
 import { salinasCaylaoRoot } from "./salinasCaylao";
 import type { TreeSection } from "../types/family";
 
 export const FOCAL_NAME = "Resurreccion Nathalie Salinas";
+export const FOCAL_PERSON_ID =
+  findFocalPerson(maligBieRoot)?.id ?? "";
 
 export const sections: TreeSection[] = [
   {

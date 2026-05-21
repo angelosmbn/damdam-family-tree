@@ -1,23 +1,30 @@
 import { useState } from "react";
 import type { FamilyNode } from "../types/family";
+import { branchContainsPerson } from "../utils/tree";
 import { PersonCard } from "./PersonCard";
 
 interface FamilyBranchProps {
   node: FamilyNode;
   depth?: number;
-  defaultExpanded?: boolean;
+  focusPersonId?: string | null;
 }
 
 export function FamilyBranch({
   node,
   depth = 0,
-  defaultExpanded = depth < 2,
+  focusPersonId = null,
 }: FamilyBranchProps) {
   const hasChildren = (node.children?.length ?? 0) > 0;
-  const [expanded, setExpanded] = useState(defaultExpanded);
+  const onFocusPath =
+    focusPersonId != null && branchContainsPerson(node, focusPersonId);
+  const [expanded, setExpanded] = useState(depth < 2 || onFocusPath);
   const hasFocal =
     node.partners.some((p) => p.focal) ||
     node.children?.some((c) => branchHasFocal(c));
+  const hasFocusInSubtree =
+    focusPersonId != null &&
+    (node.children?.some((c) => branchContainsPerson(c, focusPersonId)) ??
+      false);
 
   return (
     <div className="flex flex-col items-center">
@@ -35,7 +42,11 @@ export function FamilyBranch({
                   ♥
                 </span>
               )}
-              <PersonCard person={person} compact={depth > 2} />
+              <PersonCard
+                person={person}
+                compact={depth > 2}
+                searchHighlight={person.id === focusPersonId}
+              />
             </div>
           ))}
         </div>
@@ -48,7 +59,7 @@ export function FamilyBranch({
           >
             {expanded ? "Hide" : "Show"} {node.children!.length} branch
             {node.children!.length !== 1 ? "es" : ""}
-            {hasFocal && !expanded && (
+            {!expanded && (hasFocal || hasFocusInSubtree) && (
               <span className="ml-1 text-amber-600">★</span>
             )}
           </button>
@@ -57,10 +68,7 @@ export function FamilyBranch({
 
       {hasChildren && expanded && (
         <>
-          <div
-            className="my-2 h-6 w-px bg-stone-300"
-            aria-hidden
-          />
+          <div className="my-2 h-6 w-px bg-stone-300" aria-hidden />
           <div className="relative flex flex-wrap justify-center gap-6 pt-2">
             <div
               className="pointer-events-none absolute top-0 left-4 right-4 h-px bg-stone-300"
@@ -71,15 +79,10 @@ export function FamilyBranch({
                 key={child.id}
                 className="flex flex-col items-center px-2 pt-4"
               >
-                <div
-                  className="absolute -top-0 h-4 w-px bg-stone-300"
-                  style={{ position: "relative", top: 0 }}
-                  aria-hidden
-                />
                 <FamilyBranch
                   node={child}
                   depth={depth + 1}
-                  defaultExpanded={depth < 1 || branchHasFocal(child)}
+                  focusPersonId={focusPersonId}
                 />
               </div>
             ))}
